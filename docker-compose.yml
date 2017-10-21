@@ -1,0 +1,14 @@
+version: '3'
+services:
+  server:
+    build:
+      context: .
+      dockerfile: './dockerfile/Dockerfile'
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app/
+  # database:
+  #   image: postgres
+  #   environment:
+  #     POSTGRES_PASSWORD:
