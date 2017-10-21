@@ -4,7 +4,11 @@ COPY . /app/
 
 RUN set -x && \
     cp /app/.gemrc ~/.gemrc && \
-    gem install bundler
+    gem install bundler && \
+    curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+    apt-get upgrade -y && \
+    apt-get install nodejs build-essential -y && \
+    npm i -g yarn
 
 WORKDIR /app
 
