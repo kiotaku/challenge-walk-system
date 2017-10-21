@@ -1,0 +1,4 @@
+op1=>operation: ユーザー状態一覧画面
+op2=>operation: ユーザー状態絞り込み画面
+
+op1->op2

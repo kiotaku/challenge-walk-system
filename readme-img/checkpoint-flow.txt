@@ -1,0 +1,5 @@
+op1=>operation: チェックポイント選択画面
+op2=>operation: QRコード読み込み画面
+op3=>operation: チェックポイント状態変更通知画面
+
+op1->op2->op3->op2

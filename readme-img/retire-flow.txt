@@ -1,0 +1,9 @@
+st=>start: Start
+e=>end: End
+cond1=>condition: if iOS?
+op1=>operation: QRコード読み込み画面
+op2=>operation: QR読み取りアプリへ遷移
+op3=>operation: ユーザーおよびチェックポイント状態変更通知画面
+
+cond1(no)->op1->op3
+cond1(yes)->op2->op3
