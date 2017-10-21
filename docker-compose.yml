@@ -8,6 +8,7 @@ services:
       - '3000:3000'
     volumes:
       - .:/app/
+    entrypoint: [ "bundle", "exec", "rails", "s", "-b", "0.0.0.0" ]
   # database:
   #   image: postgres
   #   environment:
