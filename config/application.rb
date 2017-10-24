@@ -13,6 +13,9 @@ module App
 
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
+      g.orm :active_record, foreign_key_type: :uuid
+
+      g.test_framework :minitest, spec: true
     end
 
     # Settings in config/environments/* take precedence over those specified here.
