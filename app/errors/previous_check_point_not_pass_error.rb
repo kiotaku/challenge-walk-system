@@ -1,0 +1,1 @@
+class PreviousCheckPointNotPassError < RuntimeError; end

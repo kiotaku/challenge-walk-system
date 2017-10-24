@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  check_point: one
+  status: not pass
+
+two:
+  user: one
+  check_point: two
+  status: not pass
+
+three:
+  user: one
+  check_point: three
+  status: not pass
+
+four:
+  user: two
+  check_point: one
+  status: not pass
+
+five:
+  user: two
+  check_point: two
+  status: not pass
+
+six:
+  user: two
+  check_point: three
+  status: not pass

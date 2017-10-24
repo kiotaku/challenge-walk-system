@@ -1,0 +1,1 @@
+class UserAlreadyFinishedError < RuntimeError; end
