@@ -9,7 +9,7 @@
 
 ## DB
 ### ユーザー
-* 名前
+* ~~名前~~
 * 識別番号(QR用)
 * 状態(参加中、リタイヤ、完走済み)
 
@@ -28,7 +28,7 @@
 ### チェックポイント画面
 * チェックポイントを選ぶまたは、特定のチェックポイントの画面にログインする
 * QRコードを読み込み、チェックポイントの状態を通過済みへ変更する
-![](https://raw.githubusercontent.com/kiotaku/challenge-walk-system/master/readme-img/checkpoint-flow.png?token=AKsC9o39oqjqXgnlVqfnZgc46wjGo0_hks5Z9K6CwA%3D%3D)
+![](https://raw.githubusercontent.com/kiotaku/challenge-walk-system/master/readme-img/check_point-flow.png?token=AKsC9o39oqjqXgnlVqfnZgc46wjGo0_hks5Z9K6CwA%3D%3D)
 
 ### ユーザー状態確認画面
 * 初期状態ではすべてのユーザーの状態を一覧にし表示する
