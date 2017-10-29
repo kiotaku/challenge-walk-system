@@ -13,7 +13,8 @@ RUN set -x && \
 WORKDIR /app
 
 RUN set -x && \
-    bundle install
+    bundle install && \
+    yarn install
 
 EXPOSE 3000
 

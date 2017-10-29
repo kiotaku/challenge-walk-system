@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20171023013135) do
   create_table "check_point_statuses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id"
     t.uuid "check_point_id"
-    t.string "status"
+    t.string "status", default: "not pass"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20171023013135) do
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "number"
-    t.string "state"
+    t.string "state", default: "joining"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,3 +1,8 @@
 const { environment } = require('@rails/webpacker')
 
-module.exports = environment
+module.exports = Object.assign(environment.toWebpackConfig(), {
+  node: {
+    fs: 'empty',
+  },
+  target: 'web',
+})

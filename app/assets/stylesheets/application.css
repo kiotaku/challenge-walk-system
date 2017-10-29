@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+div#app {
+  margin: 20px;
+}
+
+.check-point-name {
+  margin: 0 !important;
+}
+
+.search {
+  margin: 0 !important;
+}

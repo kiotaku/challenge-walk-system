@@ -7,10 +7,13 @@
         "uglify": true
       },
       "useBuiltIns": true
-    }]
+    }],
+    "latest",
+    "react"
   ],
 
   "plugins": [
+    "transform-react-jsx",
     "syntax-dynamic-import",
     "transform-object-rest-spread",
     ["transform-class-properties", { "spec": true }]

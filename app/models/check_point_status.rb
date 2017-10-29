@@ -26,6 +26,12 @@ class CheckPointStatus < ApplicationRecord
     with_check_point_info.where.not(check_points: { id: with_check_point_info.pluck('check_points.previous_check_point_id') }).first
   }
 
+  scope :sequence, -> {
+    CheckPoint.sequence.map do |check_point|
+      find_by(check_point_id: check_point.id)
+    end
+  }
+
   STATUS = [
     'not pass',
     'pass',
@@ -33,10 +39,10 @@ class CheckPointStatus < ApplicationRecord
   ]
 
   def pass
-    result = update status: 'pass'
     if previous && previous.status == 'not pass'
       raise PreviousCheckPointNotPassError
     end
+    result = update status: 'pass'
     result
   end
 
@@ -50,5 +56,9 @@ class CheckPointStatus < ApplicationRecord
 
   def retire
     update status: 'retire'
+  end
+
+  def summary
+    attributes.slice('status')
   end
 end
