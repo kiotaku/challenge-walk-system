@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'root#root'
 
+  get 'admin', to: 'root#admin'
+
   get 'user/import'
 
   post 'user/import', to: 'user#create_with_import'
