@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import QRCode from 'qrcode-reader'
 
-export default class iOSQRScanner extends Component {
+export default class IOSQRScanner extends Component {
   medias = {
     audio: false,
     video: {
@@ -10,25 +11,34 @@ export default class iOSQRScanner extends Component {
     }
   }
 
+  constructor() {
+    super()
+  }
+
   componentDidMount() {
-    var my_awesome_script = document.createElement('script')
-    my_awesome_script.setAttribute('src','https://cdn.jsdelivr.net/npm/jsqrcode@0.0.7/src/qrcode.min.js')
-    document.head.appendChild(my_awesome_script)
-    navigator.getUserMedia(this.medias, this.handleSuccess.bind(this), function() {})
-    requestAnimationFrame(this.draw.bind(this))
-    qrcode.callback = this.props.onScan
+    const qr = new QRCode()
+    qr.callback = (error, result) => {
+      if (error) {
+        return
+      }
+      this.props.onScan(result.result)
+    }
+    navigator.mediaDevices.getUserMedia(this.medias)
+      .then((stream) => {
+        this.video.srcObject = stream
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+    requestAnimationFrame(this.draw.bind(this, qr))
   }
 
-  handleSuccess(stream) {
-    this.video.srcObject = stream
-  }
-
-  draw() {
+  draw(qr) {
     this.canvas.width = window.innerWidth
     this.canvas.height = window.innerHeight
-    this.canvas.getContext('2d').drawImage(this.video, 0, 0)
-    qrcode.decode()
-    requestAnimationFrame(this.draw.bind(this))
+    this.canvas.getContext('2d').drawImage(this.video, 0, 0, this.canvas.width, this.canvas.height)
+    qr.decode(this.canvas.getContext('2d').getImageData(0, 0, this.canvas.width, this.canvas.height))
+    requestAnimationFrame(this.draw.bind(this, qr))
   }
 
   render() {
@@ -37,8 +47,7 @@ export default class iOSQRScanner extends Component {
         <canvas style={{
           display: 'block',
           position: 'absolute',
-          top: 0, left: 0,
-          width: '100%', height: '100%' }}
+          top: 0, left: 0 }}
           ref={(e) => this.canvas = e} id='qr-canvas'></canvas>
         <div style={{
           position: 'absolute',
@@ -46,8 +55,8 @@ export default class iOSQRScanner extends Component {
           transformOrigin: 'left top',
           transform: 'scale(.1)' }}
           id='video-box'>
-          <video style={{ display: 'block', transform: 'rotateZ(180deg)' }}
-            ref={(e) => this.video = e} id="video" autoplay playsinline></video>
+          <video style={{ display: 'block' }}
+            ref={(e) => this.video = e} id="video" autoPlay playsInline></video>
         </div>
       </div>
     )
