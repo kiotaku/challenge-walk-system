@@ -42,3 +42,17 @@
 * Web上でのQRコード読み込みライブラリがApple WebKitの実装状況が間に合っていないためIOSで失敗するためIOSでも動作するように変更する必要あり
 * 少なくとも識別番号を入力できるようにするのは良くない
 ![](https://raw.githubusercontent.com/kiotaku/challenge-walk-system/master/readme-img/user-status-flow.png?token=AKsC9lBDVNKBFqFUbIf1p5VCJHDGvxhuks5Z9K66wA%3D%3D)
+
+## 起動の仕方
+1. サーバー上でこのリポジトリをクローンする
+```shell
+git clone https://github.com/kiotaku/challenge-walk-system
+```
+2. サーバーにdockerとdocker-composeを入れる
+3. 新しくできたchallenge-walk-systemディレクトリの中でdocker-compose upコマンドを叩く
+```shell
+docker-compose up
+```
+4.サーバーのIPアドレスを調べて，http://(IPアドレス):3000 にアクセスして動作していることを確認する
+5.ドメインを取得してhttps化する必要があるので「ドメイン 無料」で調べて.tkなどのドメインを取得する
+6.let's encryptを使ってサーバー証明書を取得してnginxを使って適切に設定してください
