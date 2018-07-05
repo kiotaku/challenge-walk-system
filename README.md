@@ -53,6 +53,6 @@ git clone https://github.com/kiotaku/challenge-walk-system
 ```shell
 docker-compose up
 ```
-4.サーバーのIPアドレスを調べて，http://(IPアドレス):3000 にアクセスして動作していることを確認する
-5.ドメインを取得してhttps化する必要があるので「ドメイン 無料」で調べて.tkなどのドメインを取得する
-6.let's encryptを使ってサーバー証明書を取得してnginxを使って適切に設定してください
+4. サーバーのIPアドレスを調べて，http://(IPアドレス):3000 にアクセスして動作していることを確認する
+5. ドメインを取得してhttps化する必要があるので「ドメイン 無料」で調べて.tkなどのドメインを取得する
+6. let's encryptを使ってサーバー証明書を取得してnginxを使って適切に設定してください
