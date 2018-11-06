@@ -1,4 +1,5 @@
 class CheckPointController < ApplicationController
+  protect_from_forgery prepend: true, with: :exception
   def index
     render json: CheckPoint.try(:sequence)
   end
