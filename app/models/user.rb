@@ -38,7 +38,7 @@ class User < ApplicationRecord
 
   def summary
     attributes.slice('id', 'number', 'state').merge(
-      check_point_statuses: check_point_statuses.try(:sequence).map(&:summary)
+      check_point_statuses: check_point_statuses.try(:sequence).filter(&:present?).map(&:summary)
     )
   end
 
