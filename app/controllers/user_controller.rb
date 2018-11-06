@@ -1,5 +1,4 @@
 class UserController < ApplicationController
-  protect_from_forgery prepend: true, with: :exception
   def new
   end
 

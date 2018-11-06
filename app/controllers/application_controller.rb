@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery prepend: true, with: :exception
+  protect_from_forgery prepend: true
   before_action :basic_auth
 
   def basic_auth
