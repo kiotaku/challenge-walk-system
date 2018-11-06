@@ -1,4 +1,5 @@
 class CheckPointController < ApplicationController
+  protect_from_forgery except: [:set, :change_status_to_pass]
   def index
     render json: CheckPoint.try(:sequence)
   end
