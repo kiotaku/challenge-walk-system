@@ -21,6 +21,7 @@ class User < ApplicationRecord
     set_number = SecureRandom.random_number(1 << 31)
     user = User.create(number: set_number)
     CheckPoint.sequence.each do |check_point|
+      p check_point
       CheckPointStatus.create(user_id: user.id, check_point_id: check_point.id)
     end
     set_number
@@ -38,7 +39,7 @@ class User < ApplicationRecord
 
   def summary
     attributes.slice('id', 'number', 'state').merge(
-      check_point_statuses: check_point_statuses.try(:sequence).filter(&:present?).map(&:summary)
+      check_point_statuses: check_point_statuses.try(:sequence).map(&:summary)
     )
   end
 
