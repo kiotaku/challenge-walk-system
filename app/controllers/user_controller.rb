@@ -1,5 +1,4 @@
 class UserController < ApplicationController
-  protect_from_forgery except: [:add, :create_with_import, :retired, :excute_all_delete]
   def new
   end
 
